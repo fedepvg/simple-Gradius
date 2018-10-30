@@ -28,6 +28,7 @@
     <ClCompile Include="..\src\Game\Setup\Enemy.cpp" />
     <ClCompile Include="..\src\Game\Setup\Game.cpp" />
     <ClCompile Include="..\src\Game\Setup\Player.cpp" />
+    <ClCompile Include="..\src\Game\Setup\PlayerMissile.cpp" />
     <ClCompile Include="..\src\Game\Setup\PlayerShoot.cpp" />
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
@@ -40,6 +41,7 @@
     <ClInclude Include="..\src\Game\Screens\settings.h" />
     <ClInclude Include="..\src\Game\Setup\Enemy.h" />
     <ClInclude Include="..\src\Game\Setup\Game.h" />
+    <ClInclude Include="..\src\Game\Setup\PlayerMissile.h" />
     <ClInclude Include="..\src\Game\Setup\Player.h" />
     <ClInclude Include="..\src\Game\Setup\PlayerShoot.h" />
   </ItemGroup>

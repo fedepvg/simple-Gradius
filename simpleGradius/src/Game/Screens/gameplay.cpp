@@ -3,6 +3,7 @@
 #include "Setup/Game.h"
 #include "Setup/Player.h"
 #include "Setup\Enemy.h"
+#include "PlayerMissile.h"
 #include "Setup\PlayerShoot.h"
 #include "Screens/settings.h"
 #include "Screens\menu.h"
@@ -105,6 +106,7 @@ namespace Juego
 			createPlayer();
 			createEnemy();
 			createShoot();
+			createMissile();
 		}
 
 		void InitGameplayParallax()
@@ -337,6 +339,7 @@ namespace Juego
 				playerUpdate();
 				EnemyUpdate();
 				shootUpdate();
+				missileUpdate();
 
 			}
 			else if (gamePaused)
@@ -399,6 +402,7 @@ namespace Juego
 
 
 			shootDraw();
+			missileDraw();
 			playerDraw();
 			EnemyDraw();
 			

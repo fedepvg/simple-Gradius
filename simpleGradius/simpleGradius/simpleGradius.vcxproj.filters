@@ -55,6 +55,9 @@
     <ClCompile Include="..\src\Game\Setup\PlayerShoot.cpp">
       <Filter>Game\Setup</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Game\Setup\PlayerMissile.cpp">
+      <Filter>Game\Setup</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Game\Setup\Game.h">
@@ -85,6 +88,9 @@
       <Filter>Game\Setup</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Game\Setup\PlayerShoot.h">
+      <Filter>Game\Setup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Setup\PlayerMissile.h">
       <Filter>Game\Setup</Filter>
     </ClInclude>
   </ItemGroup>

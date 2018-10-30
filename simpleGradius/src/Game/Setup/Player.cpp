@@ -1,6 +1,7 @@
 #include "Player.h"
 
 #include "Setup\Game.h"
+#include "Setup\PlayerMissile.h"
 #include "Setup\PlayerShoot.h"
 #include "Screens\settings.h"
 #include "Screens\gameplay.h"
@@ -39,6 +40,7 @@ namespace Juego
 		void playerInput()
 		{
 			shootInput();
+			missileInput();
 
 			if (IsKeyDown(playerKeys[UP]))
 			{

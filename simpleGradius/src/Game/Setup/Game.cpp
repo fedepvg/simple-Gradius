@@ -93,6 +93,7 @@ namespace Juego
 		playerKeys[UP] = KEY_UP;
 		playerKeys[DOWN] = KEY_DOWN;
 		playerKeys[SHOOT] = KEY_SPACE;
+		playerKeys[MISSILE] = KEY_LEFT_CONTROL;
 
 		#ifdef AUDIO
 		InitAudioDevice();

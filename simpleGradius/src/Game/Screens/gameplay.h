@@ -18,6 +18,7 @@ namespace Juego
 		UP = 8,
 		DOWN,
 		SHOOT,
+		MISSILE,
 		MAX
 	};
 

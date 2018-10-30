@@ -66,11 +66,10 @@ namespace Juego
 
 		void shootInput()
 		{
+			rapidFireTimer += 1 * GetFrameTime();
 			// Player shoot logic
 			if (IsKeyDown(playerKeys[SHOOT]))
 			{
-				rapidFireTimer += 1 * GetFrameTime();
-
 				for (int i = 0; i < maxShoots; i++)
 				{
 					if (rapidFireTimer > rapidFireRate)
