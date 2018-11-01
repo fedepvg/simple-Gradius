@@ -172,7 +172,7 @@ namespace Juego
 					parallaxLayersSpeedDecreaser = parallaxLayersSpeedDecreaser + 25; //250
 					if (i == 0)
 					{
-						parallaxLayersSpeed[i] = 600;
+						parallaxLayersSpeed[i] = 450;
 					}
 				}
 
@@ -359,7 +359,21 @@ namespace Juego
 					}
 				}
 
-				
+				if (CheckCollisionRecs({ player.position.x,player.position.y,player.size.x,player.size.y }, enemyCanonCollider))
+				{
+					gameON = false;
+					player.isAlive = false;
+					buttonOption = buttonGameOver;
+					isScreenFinished = true;
+				}
+
+				if (CheckCollisionRecs({ player.position.x,player.position.y,player.size.x,player.size.y }, {canonShoot.position.x,canonShoot.position.y,canonShoot.size.x,canonShoot.size.y}))
+				{
+					gameON = false;
+					player.isAlive = false;
+					buttonOption = buttonGameOver;
+					isScreenFinished = true;
+				}
 
 				playerUpdate();
 				EnemyUpdate();

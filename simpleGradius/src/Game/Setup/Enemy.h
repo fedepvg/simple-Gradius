@@ -10,6 +10,7 @@ namespace Juego
 
 	extern rocketShip enemy01;
 	extern rocketShip enemies[maxEnemies];
+	
 
 	namespace Gameplay_Section
 	{

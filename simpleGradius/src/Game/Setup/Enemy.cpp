@@ -42,7 +42,6 @@ namespace Juego
 
 		void EnemyUpdate()
 		{
-
 			for (int i = 0; i < maxEnemies; i++)
 			{
 				enemies[i].position.x -= enemies[i].defaultSpeed * GetFrameTime();
@@ -54,6 +53,7 @@ namespace Juego
 					enemies[i].position.y = GetRandomValue(0, screenHeight - (enemies[i].size.y / 2));
 				}
 			}
+			
 		}
 
 		void EnemyDraw()

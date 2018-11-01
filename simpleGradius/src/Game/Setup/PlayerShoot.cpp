@@ -5,6 +5,7 @@
 #include "Screens/gameplay.h"
 #include "Screens/settings.h"
 #include "Setup\Enemy.h"
+#include "EnemyCanon.h"
 
 using namespace Juego;
 using namespace Gameplay_Section;
@@ -178,7 +179,35 @@ namespace Juego
 						}
 					}
 				}
-				
+				if ((shoots[f].active))
+				{
+					if (CheckCollisionRecs({ shoots[f].position.x,shoots[f].position.y,shoots[f].size.x,shoots[f].size.y },enemyCanonCollider))
+					{
+#ifdef AUDIO
+						PlaySound(enemy_explode01);
+#endif
+						canonBase.isAlive = false;
+						canonTop.isAlive = false;
+						shoots[f].active = false;
+						shoots2[f].active = false;
+						targetsLeft--;
+					}
+
+					if ((shoots2[f].active))
+					{
+						if (CheckCollisionRecs({ shoots2[f].position.x,shoots2[f].position.y,shoots2[f].size.x,shoots2[f].size.y }, enemyCanonCollider))
+						{
+#ifdef AUDIO
+							PlaySound(enemy_explode01);
+#endif
+							canonBase.isAlive = false;
+							canonTop.isAlive = false;
+							shoots[f].active = false;
+							shoots2[f].active = false;
+							targetsLeft--;
+						}
+					}
+				}
 			}
 		}
 

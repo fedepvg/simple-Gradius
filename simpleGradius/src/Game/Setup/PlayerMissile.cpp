@@ -7,6 +7,7 @@
 #include "Screens/gameplay.h"
 #include "Screens/settings.h"
 #include "Setup\Enemy.h"
+#include "EnemyCanon.h"
 
 using namespace Juego;
 using namespace Gameplay_Section;
@@ -23,7 +24,6 @@ namespace Juego
 	{
 		void createMissile()
 		{
-
 			for (int i = 0; i < maxMissiles; i++)
 			{
 				missiles[i].position.x = 0;
@@ -137,7 +137,19 @@ namespace Juego
 						}
 					}
 				}
-
+				if ((missiles[f].active))
+				{
+					if (CheckCollisionRecs({ missiles[f].position.x,missiles[f].position.y,missiles[f].size.x,missiles[f].size.y },enemyCanonCollider ))
+					{
+#ifdef AUDIO
+						PlaySound(enemy_explode01);
+#endif
+						canonBase.isAlive = false;
+						canonTop.isAlive=false;
+						missiles[f].active = false;
+						targetsLeft--;
+					}
+				}
 			}
 		}
 

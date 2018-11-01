@@ -3,10 +3,14 @@
 
 #include "raylib.h"
 #include "Player.h"
+#include "PlayerShoot.h"
 
 namespace Juego
 {
 	extern rocketShip canonBase;
+	extern rocketShip canonTop;
+	extern Rectangle enemyCanonCollider;
+	extern Shoot canonShoot;
 
 	namespace Gameplay_Section
 	{
