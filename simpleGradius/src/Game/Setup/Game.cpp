@@ -155,9 +155,9 @@ namespace Juego
 					StopMusicStream(song_invasion);
 					#endif
 					InitGameplayParallax();
-					RestartPhase();
 					gameScreen = Play;
 					InitGameplayScreen();
+					RestartPhase();
 					break;
 				}
 				case buttonControls:

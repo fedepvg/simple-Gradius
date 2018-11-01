@@ -7,6 +7,7 @@
 #include "Setup\PlayerShoot.h"
 #include "Screens/settings.h"
 #include "Screens\menu.h"
+#include "EnemyCanon.h"
 
 namespace Juego
 {
@@ -50,9 +51,11 @@ namespace Juego
 
 	static Image shipImage;
 	static Image enemyShipImage;
+	static Image enemyCanonBaseImage;
+	static Image enemyCanonTopImage;
 
 	static float parallaxLayersPosition[maxLayers];
-	static float parallaxLayersSpeed[maxLayers];
+	float parallaxLayersSpeed[maxLayers];
 
 	static int parallaxLayersSpeedDecreaser;
 
@@ -62,6 +65,8 @@ namespace Juego
 	static Texture2D pauseMenu;
 	Texture2D ship;
 	Texture2D enemyShip;
+	Texture2D enemyCanonBase;
+	Texture2D enemyCanonTop;
 
 	namespace Gameplay_Section
 	{
@@ -105,6 +110,7 @@ namespace Juego
 			createPauseButtons();
 			createPlayer();
 			createEnemy();
+			createEnemyCanon();
 			createShoot();
 			createMissile();
 		}
@@ -166,7 +172,7 @@ namespace Juego
 					parallaxLayersSpeedDecreaser = parallaxLayersSpeedDecreaser + 25; //250
 					if (i == 0)
 					{
-						parallaxLayersSpeed[i] = 900;
+						parallaxLayersSpeed[i] = 600;
 					}
 				}
 
@@ -187,6 +193,14 @@ namespace Juego
 				ImageResize(&enemyShipImage, 180, 70);
 				enemyShip = LoadTextureFromImage(enemyShipImage);
 
+				enemyCanonBaseImage = LoadImage("res/assets/textures/canonBase.png");
+				ImageResize(&enemyCanonBaseImage, 100, 60);
+				enemyCanonBase = LoadTextureFromImage(enemyCanonBaseImage);
+
+				enemyCanonTopImage = LoadImage("res/assets/textures/canonTop.png");
+				ImageResize(&enemyCanonTopImage, 90, 110);
+				enemyCanonTop = LoadTextureFromImage(enemyCanonTopImage);
+
 				pauseMenuImage = LoadImage("res/assets/textures/pausemenu.png");
 				ImageResize(&pauseMenuImage, pauseBoxRec.width, pauseBoxRec.height);
 				pauseMenu = LoadTextureFromImage(pauseMenuImage);
@@ -194,7 +208,8 @@ namespace Juego
 				UnloadImage(pauseMenuImage);
 				UnloadImage(shipImage);
 				UnloadImage(enemyShipImage);
-
+				UnloadImage(enemyCanonBaseImage);
+				UnloadImage(enemyCanonTopImage);
 			}
 			else if (resolutionSmall)
 			{
@@ -206,6 +221,14 @@ namespace Juego
 				ImageResize(&enemyShipImage, 180 / 1.5f, 70 / 1.5f);
 				enemyShip = LoadTextureFromImage(enemyShipImage);
 
+				enemyCanonBaseImage = LoadImage("res/assets/textures/canonBase.png");
+				ImageResize(&enemyCanonBaseImage, 100 * 1.5f, 60 * 1.5f);
+				enemyCanonBase = LoadTextureFromImage(enemyCanonBaseImage);
+
+				enemyCanonTopImage = LoadImage("res/assets/textures/canonTop.png");
+				ImageResize(&enemyCanonTopImage, 90 * 1.5f, 110 * 1.5f);
+				enemyCanonTop = LoadTextureFromImage(enemyCanonTopImage);
+
 				pauseMenuImage = LoadImage("res/assets/textures/pausemenu.png");
 				ImageResize(&pauseMenuImage, pauseBoxRec.width, pauseBoxRec.height);
 				pauseMenu = LoadTextureFromImage(pauseMenuImage);
@@ -213,6 +236,8 @@ namespace Juego
 				UnloadImage(pauseMenuImage);
 				UnloadImage(shipImage);
 				UnloadImage(enemyShipImage);
+				UnloadImage(enemyCanonBaseImage);
+				UnloadImage(enemyCanonTopImage);
 			}
 
 			#ifdef AUDIO
@@ -338,6 +363,7 @@ namespace Juego
 
 				playerUpdate();
 				EnemyUpdate();
+				EnemyCanonUpdate();
 				shootUpdate();
 				missileUpdate();
 
@@ -404,8 +430,8 @@ namespace Juego
 			shootDraw();
 			missileDraw();
 			playerDraw();
-			EnemyDraw();
-			
+			EnemyCanonDraw();
+			EnemyDraw();			
 
 			DrawRectangleLines(pauseButton.position.x, pauseButton.position.y, pauseButton.width, pauseButton.height, pauseButton.defaultColor);
 

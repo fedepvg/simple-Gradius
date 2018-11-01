@@ -28,8 +28,12 @@ namespace Juego
 	const int maxLayers = 6;
 	extern Texture2D backgroundLayers[maxLayers];
 
+	extern float parallaxLayersSpeed[maxLayers];
+
 	extern Texture2D ship;
 	extern Texture2D enemyShip;
+	extern Texture2D enemyCanonBase;
+	extern Texture2D enemyCanonTop;
 
 	namespace Gameplay_Section
 	{
