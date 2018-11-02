@@ -1,4 +1,12 @@
+## v1.1 [2018-11-1]
+
+### Added
+- Enemy Canon
+- Enemy Canon shoot
+- Player Missiles
+
 ## v1.0 [2018-10-29]
+
 ### Added
 - Sounds
 - Music
